@@ -1,0 +1,12 @@
+Source: hwserial
+Section: devel
+Priority: extra
+Maintainer: Jason O'Bryan <jason@razberi.net>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://www.razberi.net/
+
+Package: hwserial
+Architecture: any
+Depends: daemontools, ${shlibs:Depends}, ${misc:Depends}
+Description: Provides serial number to Arcus.

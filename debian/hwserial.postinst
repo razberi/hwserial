@@ -1,0 +1,18 @@
+# select the traditional netcat as the default
+update-alternatives --set nc /bin/nc.traditional
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_get hwserial/channels
+CHANNELS=$RET
+db_get hwserial/serialno
+SERIAL=$RET
+
+echo "Applying channels to file: $CHANNELS"
+sed -i s/%CHANNELS%/$CHANNELS/ /usr/local/razberi/hwserial/jsonData.json
+
+echo "Applying serial number to file: $SERIAL"
+sed -i s/%SERIAL%/$SERIAL/ /usr/local/razberi/hwserial/jsonData.json
+
+#DEBHELPER#

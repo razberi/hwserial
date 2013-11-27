@@ -1,0 +1,9 @@
+Template: hwserial/serialno
+Type: string
+Description: The serial number of the unit: 
+
+Template: hwserial/channels
+Type: select
+Choices: 8, 24
+Default: 8
+Description: The number of channels this unit has: 

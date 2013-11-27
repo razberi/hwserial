@@ -1,0 +1,16 @@
+description "hwserial"
+author      "razberi.net"
+
+# used to be: start on startup
+# until we found some mounts weren't ready yet while booting:
+start on (started mountall or starting Arcus)
+stop on shutdown
+
+# Automatically Respawn:
+respawn
+#respawn limit 999999 5
+
+script
+    cd /usr/local/razberi/hwserial
+    exec stdbuf -oL /usr/local/razberi/hwserial/hwserial 2>&1 | tai64n | tai64nlocal
+end script

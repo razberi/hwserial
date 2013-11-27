@@ -1,0 +1,11 @@
+hwserial (1.0.0-2) precise; urgency=low
+
+  * Fixed missing dependency and content file.
+
+ -- Jason O'Bryan <jason@razberi.net>  Wed, 02 Oct 2013 14:16:21 -0500
+
+hwserial (1.0.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Jason O'Bryan <jason@razberi.net>  Fri, 20 Sep 2013 11:39:25 -0500
