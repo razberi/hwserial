@@ -2,7 +2,7 @@ Source: hwserial
 Section: devel
 Priority: extra
 Maintainer: Jason O'Bryan <jason@razberi.net>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: debhelper (>= 8.0.0), libboost-dev
 Standards-Version: 3.9.3
 Homepage: http://www.razberi.net/
 
