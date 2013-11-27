@@ -13,8 +13,15 @@ LDLIBS      := -lboost_system -lboost_thread -pthread -lrt
 DESTDIR     ?= ""
 INSTALLDIR  := $(DESTDIR)/usr/local/razberi/$(BINARY)
 
+# requires git, used to make distribution source tarball
+# for creating packages with, variables are evaluated when
+# the dist target is run so systems without git can still `make`
+REPONAME=$(shell basename `git rev-parse --show-toplevel`)
+VERSION=$(shell git describe --abbrev=0 | sed s/^v//)
+BRANCH=master
 
-.PHONY: all clean install
+
+.PHONY: all clean install dist distclean
 
 all: $(BINARY)
 
@@ -28,3 +35,10 @@ install:
 	install -d $(INSTALLDIR)
 	cp $(BINARY) $(INSTALLDIR)
 	cp jsonData.json $(INSTALLDIR)
+
+dist:
+	git archive --prefix='$(REPONAME)-$(VERSION)/' -o $(REPONAME)_$(VERSION).orig.tar.gz -9 refs/heads/$(BRANCH)
+
+distclean: clean
+	rm -f *.orig.tar.gz
+
